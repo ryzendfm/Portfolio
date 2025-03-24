@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Indie+Flower&family=Lexend:wght@100..900&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    :root {
+  // Bigger number = slower animation
+  --speed-factor: 4;
+  
+  
+  --img-1: url("data:image/png;base64,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");
+  --img-2: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAXCAYAAABqBU3hAAAMEElEQVR4AQCBAH7/ANX////X////2v///97////h////4v///+L////h////3/7//934+f/c9PH/3PHr/97w6P/i8OX/5fHk/+ny5P/r8uP/7fLj/+7y4v/v8eP/8PLl//L06P/19uz/9/nx//r89f/6/fn/+fz6//b6+f/y9vf/7fHz/+nu8P/m6+7/AIEAfv8Azv3//9D+///T////1v///9n////b////2v7//9n5///X9Pb/1O7t/9Pq5v/U5+D/1ubc/9nm2v/d59n/4OjY/+Po1//k6Nf/5efX/+bn1//n6Nn/6enc/+zs4P/v7+X/8fHp//Hz7P/w8u7/7e/t/+nr6v/k5+f/4OPk/93h4v8AgQB+/wDC7f7/xO7//8bw///J8f//zPH9/83w+f/M7PL/yufq/8fh4f/F3Nj/xNfQ/8XUyv/H08b/ytPE/87Uw//R1cP/1NbC/9XVwf/W1cH/19TB/9jVw//Z1sX/3NnK/9/czv/h3tP/4d/W/+Df1//d3Nf/2djU/9TU0f/Q0M7/zc7M/wCBAH7/ALPZ5v+02ub/ttvm/7nc5f+62+L/u9nd/7nV1v+3z83/tMnE/7LEu/+xv7P/sbyu/7S7qv+3vKj/u72n/76+pv/Bvqb/wr6l/8O9pP/DvKX/xL2m/8a+qf/IwK3/y8Ox/83Gtv/Nx7n/zMa6/8nEuv/FwLf/wLu0/7u4sf+5ta//AIEAfv8AosPK/6PDyv+lxMn/p8TH/6jDxP+nwL7/pbu3/6O1rv+gr6T/namb/5yllP+do47/oKKL/6Ojif+npIj/q6WI/62lh/+upYb/r6SG/6+jhv+wo4f/saSJ/7Onjf+2qZL/uKyW/7mtmv+4rJv/tKqa/7CmmP+roZT/p52R/6Sbj/8AgQB+/wCTra7/lK2t/5WtrP+Wrar/lqum/5WnoP+Topj/kJyO/42Whf+KkHz/iox1/4uKcP+Oim3/kotr/5aNa/+ajmv/nI5q/52Naf+ejGj/noxo/56Maf+gjWv/oo9v/6SSdP+mlHj/p5V7/6aVff+iknz/no55/5mJdv+UhXP/koNx/wCBAH7/AIealP+HmpT/iJmS/4iYj/+Ilor/hpKE/4SMe/+AhnL/foBo/3x7YP98d1n/fnZV/4F2U/+GeFL/inpS/457Uv+QfFH/kXtQ/5F6T/+ReU//knlQ/5N6Uv+VfFb/l39a/5mBX/+agmL/mIFj/5V/Yv+Qel//i3Zc/4dyWf+Eb1f/AIEAfv8Afop//36Kfv9/inz/f4h5/36Fc/98gWz/eXtk/3Z1Wv9zb1H/cmpJ/3NoRP91Z0D/emg+/39qPv+DbT7/h24//4pvPv+Lbj3/i208/4tsPP+LbDz/jG0//45vQ/+QcUf/knRL/5J1Tv+RdE//jXFO/4hsS/+DZ0f/fmNE/3thQv8AgQB+/wB5f23/eX9t/3l+av95fGf/eHlh/3Z0Wv9zb1L/cGlJ/25kQP9tYDn/b140/3JeMf93YDD/fWMx/4JlMf+GZzL/iGgy/4lnMP+JZi//iWUv/4lkL/+KZTH/i2c1/45qOv+PbD7/j21A/45rQf+KaED/hGM8/35eOP96WTX/d1cy/wCBAH7/AHZ3Yf92dmD/dnVd/3VzWv90cFT/cmxN/3BnRf9uYT3/bF01/2xaLv9uWSr/c1oo/3hcKP9+Xyn/g2Iq/4hkKv+KZSr/i2Qo/4piJ/+JYSb/iWAn/4phKf+MYyz/jmYx/49nNf+PaDf/jWY4/4hjNv+CXTL/fFgt/3dTKf90UCf/AIEAfv8Ac3FX/3RwVv90b1T/c21Q/3JqS/9xZkT/b2I9/21dNf9sWS7/bVco/3BXJP91WCP/e1sj/4FeJP+GYSX/imMm/4xjJf+MYiP/jGEi/4tfIf+KXiH/i18j/41hJ/+OYyv/j2Uu/49lMf+MYzD/h14u/4FZKf96UiT/dE0g/3FKHf8AgQB+/wBxa0//cWtO/3FqTP9xaEn/cGZE/29iPv9tXjf/bFow/2xXKf9uVST/cVYi/3ZYIP99WyH/g14i/4hhI/+LYiP/jWIi/4xgIP+LXh3/ilwc/4lcHP+KXB7/i14i/41gJv+OYSn/jWEr/4pfKv+EWif/fVMi/3VMHP9vRhf/bEMU/wCBAH7/AGxlSf9sZUj/bGRG/21jQ/9sYT//bF45/2tbM/9rVy3/a1Un/25UI/9xVSD/dlcf/3xaH/+CXSD/h18g/4lgIP+KXx7/iV0b/4haGf+GWBf/hVcX/4ZYGf+HWR3/iVwh/4ldJP+IXCX/hFkk/35UIP92TBv/bkUU/2c+D/9jOwz/AIEAfv8AZV9D/2VfQ/9mXkH/Z10//2dcO/9nWjb/Z1cw/2dUK/9pUyb/a1Ii/29TH/90VR7/eVge/35aHv+CXB7/hFsc/4RaGv+CVxb/gFQT/35SEv9+URL/flEU/4BTGP+BVhz/glcf/4BWIP98Uh//dUwa/2xEFP9kPA3/XDUH/1gxA/8AgQB+/wBcWD//XVg+/15YPf9fWDv/YFc4/2FVNP9iUy//YlEq/2RQJf9nUCL/a1Ef/29SHv90VB3/eFYd/3tXG/98VRn/e1MV/3lPEf92TA7/dEoM/3RJDP90Sg//dkwT/3hPF/95URv/eFAc/3NMGv9rRRX/Yj0O/1k0B/9RLQD/TSgA/wCBAH7/AFNRPP9UUjv/VVI7/1dSOf9ZUjf/WlEz/1tQL/9dTyv/X04m/2JOI/9lTiD/aVAf/21RHf9xUhv/clEZ/3JPFf9wTBH/bUgN/2tECf9pQgj/aUIJ/2pEDP9tRxH/cEoW/3FMGv9vSxv/a0cZ/2NAFP9ZNwz/Ty4E/0cmAP9DIgD/AIEAfv8ASkw6/0tMOv9NTTr/T045/1FPN/9UTzX/Vk4x/1hNLf9aTSn/XU0m/2BNI/9kTiH/Z04f/2lOHP9pTBj/aEkU/2ZGD/9jQQv/YD4H/188Bv9fPQj/Yj8M/2VDEv9pSBj/a0oc/2pKHv9lRx3/XkAX/1Q3EP9JLQf/QSUA/zwgAP8AgQB+/wBCSDv/Q0k7/0VKO/9ITDv/S006/05OOP9RTjb/VE4y/1ZNL/9ZTSv/XE0o/19OJf9hTSL/Y0wf/2JKGv9gRhX/XUIQ/1o9C/9YOgj/VzkI/1k7Cv9cPxD/YUQX/2ZKHv9pTST/aU4m/2VLJf9dRCD/UzsY/0gxEP9AKQn/OyQE/wCBAH7/ADxHPv8+SD//QEk//0RLP/9ITT//S08+/05QPP9RUDn/VFA2/1dQMv9aUC//XE8r/15OKP9eTCT/XUkf/1tFGf9YQRP/VTwP/1M6DP9TOg3/VjwR/1tCF/9hSSD/Z1Ap/2tVMP9sVjP/aFQz/2FNLv9XRCb/TToe/0QyFv8/LRL/AIEAfv8AOEdD/zpIQ/89SkT/QU1F/0ZPRf9KUUX/TlND/1FUQf9UVD7/V1Q6/1pTN/9cUzP/XVEv/11PKv9bSyX/WEcf/1VCGf9SPhX/UTwT/1I9FP9WQRn/XEgi/2RQLP9sWTb/cV8+/3NhQ/9wYEP/aVo//19RN/9VRy//TD8n/0g6I/8AgQB+/wA3SEj/OEpI/zxMSv9AT0v/RVJM/0pVTP9OV0v/UlhI/1VYRv9YWEL/Wlg//1xXO/9dVTb/XFIx/1tOK/9YSiX/VEUg/1JBHP9RQBr/U0Id/1hHI/9gTyz/aVk4/3JiQ/94ak3/e21S/3lsU/9yZ0//aV5I/19VQP9WTDj/UUg0/wCBAH7/ADZKTP84S03/PE5O/0BSUP9FVVH/S1hR/09aUP9TW0//V1xM/1pcSf9cXEX/XVpB/15YPP9dVTf/W1Ex/1hNK/9VSCX/U0Ui/1NEIf9VRyT/W00r/2RWNf9uYEL/eGtO/39zWP+Cd1//gXdg/3tyXf9yaVb/aGBO/19YRv9aU0L/AYEAfv8ANktO/zhNT/88T1H/QFNT/0ZXVP9LWlT/UFxU/1ReUv9YXlD/W15M/11eSf9eXUT/X1o//15XOv9cUzT/WU4u/1ZKKP9URyX/VEYl/1dJKP9dUDD/Zlk7/3FlR/97cFT/g3hf/4d9Zv+FfWf/gHhk/3dwXf9tZlX/ZF5O/19aSv8gHKk1r6IVGAAAAABJRU5ErkJggg==");
+  --img-3: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAXCAYAAABqBU3hAAAMEElEQVR4AQCBAH7/AC9Smv8xVJv/M1ad/zZZoP85W6L/O12j/ztdo/87XKH/Oluf/zlZnf85WZz/O1qc/z1cnf9BX57/RmKg/0plov9OaKP/UWuj/1Rso/9XbqL/WnCi/15zo/9idqT/Z3ml/2p8pf9tfaX/bn2j/218oP9reZ3/aHaY/2Vzlf9kcZP/AIEAfv8AOVyh/ztdo/89X6X/QGKo/0Jkqv9EZqv/RGaq/0Rlqf9DY6b/QmKk/0Jho/9DYqL/RmOj/0lmpP9Oaab/Um2o/1VvqP9Zcan/W3Oo/151qP9hd6j/ZXmo/2l8qf9tf6r/cYKq/3ODqv9zg6j/coGk/3B+oP9tepz/aneY/2h1lv8AgQB+/wBKbK//TG2w/05vsv9RcrX/U3S3/1R1t/9Vdbf/VHS1/1Jys/9RcLD/UW+v/1Jwrv9Uca7/WHSv/1t2sf9febL/Y3yz/2Z+s/9of7L/a4Gx/26Dsf9yhbH/dYiy/3mKs/98jLP/fo2y/36Mr/98iqv/eYan/3aCov9zf57/cX2c/wCBAH7/AF9/vv9ggL//Y4LB/2WFxP9nh8X/aIfG/2iHxf9nhcP/ZYPA/2SBvv9jgLz/ZIC7/2aBu/9phLz/bYa9/3CJvv9zi77/do2+/3mOvv97kL3/fpK9/4KUvf+Flr7/iZm+/4uavv+Mmrz/jJm5/4mWtP+Fka//gY2q/36Jpf98h6P/AIEAfv8Ac5DK/3SRzP92lM7/eJbQ/3qY0f97mNL/e5fR/3mWz/94k8z/dpHJ/3WQx/91kMb/d5HF/3qTxv99lcf/gZjI/4Sayf+HnMn/iZ3J/4yfyP+Pocj/k6PI/5amyf+ZqMn/nKnJ/5ypx/+bp8P/mKO+/5OeuP+OmbL/ipSt/4iSqv8AgQB+/wCBnND/gp3R/4Sf0/+GodX/iKPX/4mj1/+Iotb/h6HT/4We0f+DnM7/gprM/4Kayv+Em8v/h53L/4qgzf+Oo87/kaXP/5Snz/+XqdD/m6vQ/56u0P+isNH/prPS/6m10v+rt9L/q7bP/6mzy/+mr8X/oKm//5ujuP+Xn7P/lJyw/wCBAH7/AIegzf+Ioc7/iqLP/4yk0f+OptP/jqbT/46l0v+Mo8//iqHN/4ifyv+Incj/iJ3H/4qfyP+Nocn/kaTL/5Wnzf+Zqs7/na3P/6Cw0f+ks9L/qbbT/6261f+yvdb/tcDX/7fB1/+4wNT/tb3Q/7G4yv+sssP/pqy8/6Gntv+epLP/AIEAfv8AhZq//4abwP+HncL/iZ7E/4ugxf+LoMX/ip/E/4mdwv+Hm7//hZm9/4WYvP+GmLv/iJq8/4ydvv+QocH/laXE/5qpxv+frMj/o7DL/6i0zf+uuc//s73S/7jB1f+9xdb/v8fX/8DG1f++w9D/ub7K/7O4w/+tsbv/qKy1/6Wpsv8AgQB+/wB7jar/fI6r/32Prf9/ka7/gJKv/4CSr/9/ka7/fo+s/3yNqv97jKj/e4un/32MqP+Aj6n/hJKs/4mXsP+Om7P/lKC3/5qluv+gqr7/pq/B/6y1xf+zu8n/ucDN/7/E0P/Cx9H/w8fQ/8HEzP+8v8X/trm+/7Cytv+rrLD/qKmt/wCBAH7/AG18kf9ufZH/b36T/3B/lP9xgJX/cX+U/3B+k/9ufJH/bXuP/2x5jv9seY7/bnuP/3J+kf93gpX/fYeZ/4ONnv+Jk6L/kJin/5eeq/+epbD/pqy2/66zu/+1ucD/u7/E/8DCxv/Bw8X/v8DC/7u7vP+1tbT/rq6t/6mop/+mpaP/AIEAfv8AX2p2/19rd/9ga3j/YWx5/2Fsef9gbHj/X2p3/11odf9cZnP/W2Vy/1xmcv9eaHT/Ymt3/2hwe/9udoD/dXyF/3yCi/+DiZD/i5CW/5OXnP+bn6L/pKao/6yur/+0tLT/ubm2/7u6tv+5uLP/tbOu/6+tpv+ppp//o6CZ/6Cdlf8AgQB+/wBTW1//U1xg/1RcYP9UXGD/VFxg/1JaX/9RWF3/TlZb/01UWf9MU1j/TVRY/09WWv9UWl7/WV9i/2BlaP9na23/bnJz/3V4ef99f3//hoeF/4+PjP+YmJT/oaCa/6mnoP+urKT/sa6k/7Csov+sqJz/pqGV/6Cajv+alYj/l5KE/wCBAH7/AE1STv9NUk7/TVJO/0xRTf9LUEz/SU5K/0dLSP9ESEX/QkZD/0FFQv9CRUP/REhF/0hLSP9OUE3/VFZS/1tcWP9iY13/aWlj/3Bwaf95d2//goB3/4uIfv+UkYX/nJiL/6Kdj/+ln5D/pJ6O/6Caif+ak4L/lI16/46HdP+LhHH/AIEAfv8ATU9D/01OQ/9MTkL/S0xB/0hKP/9GRzz/QkQ5/z9ANv88PjT/Ozwy/zs8M/8+PjX/QkI4/0dHPf9MTEL/UlFH/1hXTP9fXVH/ZmNW/21qXP92cWL/f3pq/4eCcf+PiXf/lY57/5iQfP+Xj3r/k4t1/46Fbv+Hfmf/gnhh/391Xf8AgQB+/wBSUT7/UVA9/1BPPP9OTTr/S0o3/0dGNP9DQjD/Pz0s/zw6Kf86OCj/Ojgo/zw6Kv8/PS3/REEx/0lGNv9OSzr/U08+/1hUQv9eWUb/ZF9L/2xlUf90bVj/fHRe/4N7ZP+JgGj/i4Jp/4uBZv+HfGL/gXZb/3twVP91ak7/cmdK/wCBAH7/AFpWPf9ZVTz/V1M6/1RQN/9QTDT/S0gv/0dDK/9CPif/Pjsj/zw4Iv88OCL/Pjok/0E9J/9FQCr/SUQu/01IMf9RSzT/VU43/1lSOv9eVj7/ZFxD/2tiSP9yaU7/eW9T/35zV/+AdVf/f3RV/3tvUP92aUn/b2JC/2pdPP9nWjn/AIEAfv8AYlw9/2FbO/9fWDn/W1U2/1ZQMv9RSy3/S0Uo/0ZAI/9DPSD/QDoe/0A6Hv9CPCD/RT4j/0hCJv9MRSr/T0cs/1FKLv9UTDD/V04y/1pRNP9fVTf/ZVo8/2tgQf9xZUX/dWlI/3dqSf92aUb/cmRB/2xeO/9mVzT/YFIu/11PKv8AgQB+/wBpYDz/Z186/2RcOP9gWDT/W1Mv/1VNKv9PRyT/SkIg/0Y+Hf9EPBv/RDwc/0Y+Hv9JQSH/TEQk/09HJ/9SSSn/U0oq/1RLK/9WSyv/WE0s/1tQL/9gVDL/ZVk2/2pdOv9uYT3/cGI9/25gOv9rXDb/ZVUv/15PKP9ZSSL/VkYf/wCBAH7/AGtiOf9qYDf/Z100/2JYMP9dUyv/V00l/1FHIP9MQhz/SD4Z/0c9GP9HPRn/SUAc/0xDH/9QRiP/U0km/1VKJ/9WSyj/Vkon/1ZKJ/9XSyf/WU0o/11QK/9hVC7/Zlgy/2lbNP9rWzT/aVox/2VVLf9gTyb/WUkf/1RDGf9RQBb/AIEAfv8Aa2Az/2leMv9mWy//YVYq/1xQJf9VSiD/UEUb/0tAFv9IPRT/RzwU/0g9Fv9LQBn/T0Qd/1JHIf9VSiT/V0sm/1dLJv9XSyX/Vkok/1dJI/9YSiT/W00m/19QKP9jVCv/ZlYt/2dXLf9mVSv/YlEm/1xLIP9WRRn/UT8U/048EP8AgQB+/wBoXC3/Z1or/2NXKP9eUiT/WUwf/1NHGf9NQRT/ST0R/0Y6D/9GOg//SDwS/0s/Fv9PQxv/VEcf/1dKI/9YTCT/WUwk/1hLI/9XSSH/Vkgg/1dJIP9aSyL/XU4k/2FRJ/9kVCn/ZVQp/2RSJ/9gTiL/Wkkc/1RCFf9PPRD/TToN/wCBAH7/AGVYJ/9jVib/YFMi/1tOHv9VSBn/T0MU/0o9D/9GOQz/RDcL/0Q4DP9HOg//Sz4T/09DGf9URx7/V0sh/1lMI/9ZTCP/WEsi/1dJIP9WSB7/V0ge/1lKH/9cTCL/YFAk/2NSJv9kUyb/YlEk/19NH/9aRxn/VEET/088Dv9MOQv/AYEAfv8AY1Yk/2FUIv9eUB//WUwb/1NGFv9NQBD/SDsM/0Q3Cf9DNgj/QzYJ/0Y5Df9KPRL/T0IX/1RHHf9YSiD/WUwi/1pMIv9YSyH/V0kf/1ZIHf9XSB3/WUke/1xMIP9fTyP/YlEl/2NSJf9iUCP/Xkwe/1lHGP9TQRL/TzwN/0w5Cv9GlqqrSiPH3gAAAABJRU5ErkJggg==');
+}
+
+    html {
+            scroll-behavior: smooth;
+            transition: 1s cubic-bezier(.81,0,.63,.98);
+        }
+    *{
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+    .myname{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+    .log{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+    }
+    a{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        background-image: linear-gradient(9deg, #2f59ff, #e32da6);
+        -webkit-background-clip: text;
+        color: transparent;
+        transition: .3s;
+    }
+    a:hover{
+        background-image: linear-gradient(9deg,rgb(198, 27, 213),rgb(3, 17, 49));
+    }
+    button{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        width: 100px;
+        height: 30px;
+        border: none;
+        border-radius: 10px;
+        background-image: linear-gradient(45deg, #6d2fff, #da2de3);
+        color: rgb(255, 255, 255);
+        transition: .5s;
+    }
+    button:hover{
+        transition: .5s;
+        border: solid 1px;
+        border-color: rgb(166, 59, 237);
+        background-image: linear-gradient(45deg, #ffffff, #ffffff);
+        background-image: linear-gradient(9deg, #2f59ff, #e32dd1);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    .header{
+        display: flex;
+        box-sizing: border-box;
+        justify-content: space-between;
+        padding: 01px 15px;
+        border: none;
+        box-shadow: 0px 2px 20px rgba(0, 3, 6, 0.363);  
+    }
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;    
+    }
+    .name{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+
+        font-style: normal;
+        font-size: 45px;
+        padding-top: 50px;
+        padding-left: 150px;
+        height: 500px;
+        width: 50%;
+    }
+    .context{
+        font-size:large;
+        opacity: 70%;
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+    span{
+        background-image: linear-gradient(45deg, #2f59ff, #e32db8);
+            -webkit-background-clip: text;
+            color: transparent;
+    }
+    image{
+        display: flex;
+        justify-content: center;
+        border: solid;
+    }
+    .Image img{
+    width: 25vw;
+    border-radius: 50%;
+    border: solid 2px;
+    border-color:  rgb(166, 59, 237);
+    margin-top: 00px;
+    margin-right: 100px;
+    transition: 1s;
+    }
+    .Image img:hover{
+        border-radius: 40% 40px 40% 40px;
+        border-color: rgb(255, 254, 255);
+        transition: 1s cubic-bezier(.81,0,.63,.98);
+        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        gap:20px;
+        align-items: center;
+        padding-top: 100px;
+        padding-bottom: 75px;
+    }
+    #download{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        align-items: center;
+        display: flex;
+        justify-content: space-evenly;
+        width: 200px;
+        height: 60px;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(0, 136, 255);
+        color: rgb(255, 255, 255);
+        transition: .5s;
+    }
+    #download:hover{
+        transition: .5s;
+        border: solid 1px;
+        border-radius: 20px;
+        border-color:  rgb(166, 59, 237);
+        background-image: linear-gradient(45deg, #ffffff, #ffffff);
+        background-image: linear-gradient(9deg, #2f59ff, #e32d2d);
+        -webkit-background-clip: text;
+        color: transparent;
+        
+    }
+    .my-link{
+        display: flex;
+        gap: 30px;
+        width: 500px;
+        padding-bottom:30px ;
+        font-size: 30px;
+        transition: .5s;
+        
+    }
+    .my-link i{
+        border: solid 1px;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: rgb(255, 255, 255);
+    }
+    .my-link i:hover{
+        background-image: linear-gradient(9deg, #4f70f5, #dd2de3);
+        
+    }
+    .my-link a{
+        color:  rgb(166, 59, 237);
+    }
+    .my-link a:hover{
+        color: rgb(255, 255, 255);
+        transition: .5s;
+        drop
+    }
+    .con {
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            font-weight: bold;
+            color: #c5c5c5;
+            border-radius: 10px;
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, .5) 0px 30px 60px -30px;
+            backdrop-filter: blur(10px) brightness(10%);
+        }
+        
+        #title{
+            background-image: linear-gradient(45deg, #2f59ff, #e32db8,#2f59ff,#e32db8,#2f59ff);
+            -webkit-background-clip: text;
+            color: transparent;
+            padding: 20px;
+            font-size: 70px;
+
+        }
+        .speakers p {
+            font-weight: bold;
+            color: #c5c5c5;
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact label {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: left;
+            color: #ccc;
+            
+        }
+        .contact input, .contact textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 80%;
+        }
+        .video {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .projects{
+            display: flex;
+            padding-top:80px;
+            padding-bottom: 100px;
+            
+        }
+        .dbg {
+        background: radial-gradient(circle,  #829afc,#ca90fc, rgba(120, 30, 10, 0.3) 70%);
+        background-size: 200% 200%;
+        animation: dynamicLava 8s infinite alternate;
+        }
+
+        @keyframes dynamicLava {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 50% 50%;
+        }
+        100% {
+            background-position: 100% 100%;
+        }
+    }
+    ::-webkit-scrollbar{
+        width:15px;
+    }
+    ::-webkit-scrollbar-track{
+        background:white
+    }
+    ::-webkit-scrollbar-thumb{
+        background: linear-gradient(rgb(255, 255, 255),rgb(159, 47, 234), rgb(255, 255, 255));
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <header class="header">
+       <div class="log"><h1 class="logo">Portfolio</a></h1></div>
+        <nav class="navbar">
+            <a href="#projects" class="active">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#about">About</a>
+            <a href="#download">Downloads</a>
+            <a href="#conus"><button>Contact</button></a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="name">
+            <div class="myname">
+            <h1 class="1">Hi, I'm <span>Sooriyaa</span></h1>
+            </div>
+            <h3>I'm a web developer... </h3>
+            <div class="context">
+            <h6 class="text"> Hey guys I'm Sooriyaa a tech nerd who has a passion toward <span>Web Development</span>,<span> Motion Graphis</span>,<span> Visual FX</span>, and <span>Video Editing</span>. I just wanna work in an environment where I can showcase
+                my full potential while continuously expanding my knowledge in the field of Computer Science.</h2>
+            </div>
+            <div class="my-link">
+                <a href="https://www.linkedin.com/in/sooriyaa-t-n-1952472a6/"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.instagram.com/ryz.404?igsh=MWxpcWgzNTd6eXNmMg=="><i class='bx bxl-instagram-alt' ></i></a>
+                <a href="https://www.youtube.com/channel/UCIom8MBI48pMo2ErKJ-iO9g"><i class='bx bxl-youtube' ></i></a>
+                <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"><i class='bx bxl-gmail' ></i></a>
+                <a href="https://discord.gg/py7dFvPj"><i class='bx bxl-discord-alt' ></i></a>   
+            </div>
+            <div class="download">
+                <a href="C:\Users\SOORIYAA\Downloads\Sooriyaa's Resume.pdf"><button id="download">Download  CV<i class='bx bxs-download'></i></button></a>
+            </div>
+        </div>
+        <div class="Image">
+            <img src="img/Firefly 20250318151323.png" alt="Profile Picture">
+        </div>
+    </div>
+    <hr>
+    <div class="dbg">
+    <div class="projects" id="projects">
+        <div class="con">
+            <div class="p">
+                <h2 id="title">Projects</h2>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I have done so many project based on HTML and CSS, Clinent Video editing, AI workflows, CGI and VFX , i have given few of my project that i have done below 👇 </p>
+                    <br>
+                <hr>
+                <br>
+                <div class="video" id="vid">
+                    <iframe width="560" height="315" style="border-radius: 20px;background-color: #c5c5c5;" src="https://www.youtube.com/embed/pd0SUtBiaOk?si=7JCW_TL9b_MZynE9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><iframe width="560" height="315" style="border-radius: 20px;" src="https://www.youtube.com/embed/mEHNMBzU5Rs?si=JgVnS2ohvlHf6bDq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <section class="speakers" id="about">
+        <div class="con">
+            <h2 id="title">About Me &nbsp;&nbsp; </h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm a web developer with experience in front-end development, motion graphics, and video editing. Passionate about crafting seamless user experiences, I bring creative ideas to life through code. As an AI enthusiast, I stay updated with industry trends and believe in collaboration to deliver high-quality results and here's  <a href="#download">my resume &nbsp;<i class='bx bx-link-alt'></i> </a>check if you're interested in me :) </p>
+        </div>
+    </section>
+    <hr>
+    <section class="contact" id="conus">
+        <div class="con">
+            <h2 id="title">Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required style="width: auto;">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required style="width: auto;">
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" style="width: auto;"></textarea>
+                <br>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section> 
+    </div>
+</body>
+
+</html>
