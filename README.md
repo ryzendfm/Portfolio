@@ -1,5 +1,5 @@
 # Portfolio
-Modern and Clean Portfolio Web-Design (HTML/CSS)
+Modern and Clean Portfolio Web-Design (_HTML/CSS_)
 * Gradient Text & Buttons
 * Hover animation
 * Minimalist UI
